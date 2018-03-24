@@ -20,12 +20,17 @@
 <body>
   <div id="app"></div>
 
-  
-
   <script type="text/babel">
-
     // Navbar Component
     var Navbar = React.createClass({
+      propTypes: {
+        brand: React.PropTypes.string
+      },
+      getDefaultProps: function (params) {
+        return {
+          brand: 'HUT8'
+        };
+      },
       render: function () {
         return (
           <nav className="navbar navbar-default">
@@ -37,12 +42,12 @@
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#">HUT8</a>
+                <a className="navbar-brand" href="#">{this.props.brand}</a>
               </div>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
-                  <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                  <li><a href="#">Home</a></li>
+                  <li className="active"><a href="#">Home <span className="sr-only">(current)</span></a></li>
+                  <li><a href="#">About</a></li>
                 </ul>
               </div>
             </div>
